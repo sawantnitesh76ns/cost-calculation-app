@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/cost-calculation-app/static/css/main.e602a509.chunk.css",
-    "main.js": "/cost-calculation-app/static/js/main.3144796b.chunk.js",
-    "main.js.map": "/cost-calculation-app/static/js/main.3144796b.chunk.js.map",
+    "main.css": "/cost-calculation-app/static/css/main.3814d0fd.chunk.css",
+    "main.js": "/cost-calculation-app/static/js/main.b3644541.chunk.js",
+    "main.js.map": "/cost-calculation-app/static/js/main.b3644541.chunk.js.map",
     "runtime-main.js": "/cost-calculation-app/static/js/runtime-main.de9b8789.js",
     "runtime-main.js.map": "/cost-calculation-app/static/js/runtime-main.de9b8789.js.map",
     "static/js/2.56abf571.chunk.js": "/cost-calculation-app/static/js/2.56abf571.chunk.js",
@@ -10,15 +10,13 @@
     "static/js/3.0b209e01.chunk.js": "/cost-calculation-app/static/js/3.0b209e01.chunk.js",
     "static/js/3.0b209e01.chunk.js.map": "/cost-calculation-app/static/js/3.0b209e01.chunk.js.map",
     "index.html": "/cost-calculation-app/index.html",
-    "static/css/main.e602a509.chunk.css.map": "/cost-calculation-app/static/css/main.e602a509.chunk.css.map",
-    "static/js/2.56abf571.chunk.js.LICENSE.txt": "/cost-calculation-app/static/js/2.56abf571.chunk.js.LICENSE.txt",
-    "static/media/five.d45dd756.jpg": "/cost-calculation-app/static/media/five.d45dd756.jpg",
-    "static/media/two.fbee3534.jpeg": "/cost-calculation-app/static/media/two.fbee3534.jpeg"
+    "static/css/main.3814d0fd.chunk.css.map": "/cost-calculation-app/static/css/main.3814d0fd.chunk.css.map",
+    "static/js/2.56abf571.chunk.js.LICENSE.txt": "/cost-calculation-app/static/js/2.56abf571.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.de9b8789.js",
     "static/js/2.56abf571.chunk.js",
-    "static/css/main.e602a509.chunk.css",
-    "static/js/main.3144796b.chunk.js"
+    "static/css/main.3814d0fd.chunk.css",
+    "static/js/main.b3644541.chunk.js"
   ]
 }

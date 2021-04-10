@@ -190,7 +190,7 @@ class Table extends Component{
                 length=parseInt(length)
                 height=parseInt(height)
             }
-            if(length*height>minInch){
+            if(length*height>=minInch){
                 data[i].additional=30*option
             }
         }

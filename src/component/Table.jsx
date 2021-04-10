@@ -80,11 +80,14 @@ class Table extends Component{
         var cost= length*height*perInchValue
         var sizeOfImage=length*height
         
+        
         switch(true){
             
             case (sizeOfImage<=150 && sizeOfImage>0):
                 switch(true){
                     case (count===1):
+                        
+                        
                         
                         result= cost
                         break;
@@ -97,9 +100,15 @@ class Table extends Component{
             case (sizeOfImage<=250 && sizeOfImage>=150):
                 switch(true){
                     case (count===1):
+                        
+                       
+                        
                         result= cost
                         break;
                     case (count===2):
+                        
+                       
+                        
                         result= cost+25*count
                         break;
                     default:
@@ -111,9 +120,15 @@ class Table extends Component{
             case (sizeOfImage<=350 && sizeOfImage>=251):
                 switch(true){
                     case (count===1):
+                        
+                        
+                        
                         result= cost
                         break;
                     case (count===2 || count===3):
+                       
+                        
+                        
                         result= cost+25*count
                         break;
                         
@@ -122,12 +137,18 @@ class Table extends Component{
                         break;
                 }
                 break;
-            case (sizeOfImage<=480 && sizeOfImage>=351):
+            case (sizeOfImage<600 && sizeOfImage>=351):
                 switch(true){
                     case (count===1):
+                        
+                        
+                        
                         result= cost
                         break;
                     case (count===2 || count===3 || count===4):
+                        
+                        
+                        
                         result= cost+25*count
                         break;
                     default:
@@ -135,7 +156,7 @@ class Table extends Component{
                         break;
                 }
                 break;
-            case (sizeOfImage<=100000 && sizeOfImage>=481):
+            case (sizeOfImage<=100000 && sizeOfImage>=600):
                 switch(true){
                     case (count===1):
                         result= cost
@@ -181,7 +202,7 @@ class Table extends Component{
         console.log(document.getElementById("default").value=event.target.value)
         document.getElementById("default").innerHTML=event.target.value
         var data=this.state.data
-        var minInch=600
+        
         var option=parseInt(event.target.value)
         for (var i = 0; i < data.length; i++) {
             var length=data[i].length
@@ -190,8 +211,11 @@ class Table extends Component{
                 length=parseInt(length)
                 height=parseInt(height)
             }
-            if(length*height>=minInch){
+            if(length*height>600){
                 data[i].additional=30*option
+            }
+            else{
+                data[i].additional=0
             }
         }
 

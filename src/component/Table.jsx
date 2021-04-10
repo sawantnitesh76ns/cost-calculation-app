@@ -281,7 +281,7 @@ class Table extends Component{
                             <tr cellSpacing="0">
                                 <th>SIZE</th>
                                 <th>ONE</th>
-                                <th>TWO</th>
+                                <th>three</th>
                                 
                                 <th>THREE</th>
                                 <th>FOUR</th>

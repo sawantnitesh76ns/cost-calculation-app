@@ -1,5 +1,6 @@
 import { Component } from "react";
-import './Table.css'
+import './Table.css';
+import throttle from 'lodash.throttle';
 // import one from './one.jpg'
 // import two from './two.png'
 // import three from './three.png'
@@ -22,35 +23,45 @@ class Table extends Component{
         
         ],
         beforeSubmit:true,
-        afterSubmit:false
+        afterSubmit:false,
+        isMobile: false
+
         
         }
         this.handleChangesInHight=this.handleChangesInHight.bind(this);
         this.handleChangesInLength=this.handleChangesInLength.bind(this);
         this.tbody=this.tbody.bind(this);
         this.handleOptionChange=this.handleOptionChange.bind(this);
-
-    }
-    
-
-    handleViewPort(){
-        var w = window.innerWidth;
         
-        document.getElementsByTagName("table").style.width=w-100
+        this.throttledHandleWindowResize=this.throttledHandleWindowResize.bind(this);
+
     }
+    throttledHandleWindowResize = () => {
+        return throttle(() => {
+          this.setState({ isMobile: window.innerWidth < 480 })
+        }, 200);
+      }
+    
+    componentDidMount() {
+        window.addEventListener('resize', this.throttledHandleWindowResize);
+      }
+    
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.throttledHandleWindowResize);
+      }
 
     handleChangesInLength(event){
         var data=this.state.data
         data[8].length=event.target.value
         this.setState({data:data})
-        console.log(this.state.data[8].length)
+        
     }
 
     handleChangesInHight(event){
         var data=this.state.data
         data[8].height=event.target.value
         this.setState({data:data})
-        console.log(this.state.data[8].height)
+        
     }
 
     
@@ -64,7 +75,7 @@ class Table extends Component{
         }
         var result=0;
 
-        console.log(typeof(length))
+        
 
         var cost= length*height*perInchValue
         var sizeOfImage=length*height
@@ -144,7 +155,7 @@ class Table extends Component{
 
         }
 
-        console.log(result)
+        
 
         return result
 

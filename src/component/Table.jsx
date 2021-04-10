@@ -1,10 +1,10 @@
 import { Component } from "react";
 import './Table.css'
-//import one from './one.webp'
-import two from './two.jpeg'
-// import three from './three.webp'
+// import one from './one.jpg'
+// import two from './two.png'
+// import three from './three.png'
 // import four from './four.png'
- import five from './five.jpg'
+//  import five from './five.jpg'
 
 
 class Table extends Component{
@@ -29,8 +29,15 @@ class Table extends Component{
         this.handleChangesInLength=this.handleChangesInLength.bind(this);
         this.tbody=this.tbody.bind(this);
         this.handleOptionChange=this.handleOptionChange.bind(this);
+
     }
-   
+    
+
+    handleViewPort(){
+        var w = window.innerWidth;
+        
+        document.getElementsByTagName("table").style.width=w-100
+    }
 
     handleChangesInLength(event){
         var data=this.state.data
@@ -46,6 +53,8 @@ class Table extends Component{
         console.log(this.state.data[8].height)
     }
 
+    
+
     calculateValues(length,height,count){
         var perInchValue=0.9375
 
@@ -53,32 +62,93 @@ class Table extends Component{
             length=parseInt(length)
             height=parseInt(height)
         }
+        var result=0;
 
         console.log(typeof(length))
 
         var cost= length*height*perInchValue
+        var sizeOfImage=length*height
         
         switch(true){
-            case (cost<100):
-                return cost;
-            case (cost<150):
-                return cost+25*count;
-            case (cost<250):
-                return cost+25*count;
-            case (cost<350):
-                return cost+25*count;
-            case (cost<450):
-                return cost+25*count;
-            case (cost<=650):
-                return cost+25*count;
-            case (cost<750):
-                return cost+25*count;
-            case (cost<1250):
-                return cost+25*count;
+            
+            case (sizeOfImage<=150 && sizeOfImage>0):
+                switch(true){
+                    case (count===1):
+                        
+                        result= cost
+                        break;
+                    default:
+                        result= 0;
+                        break;
+                }
+                break;
+            
+            case (sizeOfImage<=250 && sizeOfImage>=150):
+                switch(true){
+                    case (count===1):
+                        result= cost
+                        break;
+                    case (count===2):
+                        result= cost+25*count
+                        break;
+                    default:
+                        result= 0;
+                        break;
+                }
+                break;
+                
+            case (sizeOfImage<=350 && sizeOfImage>=251):
+                switch(true){
+                    case (count===1):
+                        result= cost
+                        break;
+                    case (count===2 || count===3):
+                        result= cost+25*count
+                        break;
+                        
+                    default:
+                        result= 0;
+                        break;
+                }
+                break;
+            case (sizeOfImage<=480 && sizeOfImage>=351):
+                switch(true){
+                    case (count===1):
+                        result= cost
+                        break;
+                    case (count===2 || count===3 || count===4):
+                        result= cost+25*count
+                        break;
+                    default:
+                        result= 0;
+                        break;
+                }
+                break;
+            case (sizeOfImage<=100000 && sizeOfImage>=481):
+                switch(true){
+                    case (count===1):
+                        result= cost
+                        break;
+                    case (count===2 || count===3 || count===4 ||count===5):
+                        result= cost+25*count
+                        break;
+                    default:
+                        result= 0;
+                        break;
+                }
+                break;
 
             default:
-                return 0;
+                result= 0;
+                break;
+
         }
+
+        console.log(result)
+
+        return result
+
+        
 
 
         // if (count===1){
@@ -129,8 +199,10 @@ class Table extends Component{
                     <div>
                         <form>
                         <input type="text" maxLength="4" size="4" onChange={this.handleChangesInLength}/>
+                        <span>"</span>
                         <span>X</span>
                         <input type="text" maxLength="4" size="4" onChange={this.handleChangesInHight}/>
+                        <span>"</span>
                         
 
                         </form>
@@ -162,9 +234,9 @@ class Table extends Component{
         //     loginButton = <LoginButton />;
         // }
         return(
-            <div>
+            <div className="container">
                 <div>
-                    <h1 className='text-center'>Table Content</h1>
+                    <h1 className='text-center'>COST CALCULATION</h1>
                 </div>
                 
 
@@ -173,14 +245,20 @@ class Table extends Component{
                         <thead>
                             <tr cellSpacing="0">
                                 <th>SIZE</th>
-                                <th>one</th>
-                                <th>two</th>
-                                <th><img className="img" src={five} alt="THREE"></img></th>
-                                <th><img className="img" src={two} alt="FOUR"></img></th>
-                                <th><img className="img" src={two} alt="FIVE"></img></th>
+                                <th>ONE</th>
+                                <th>TWO</th>
+                                
+                                <th>THREE</th>
+                                <th>FOUR</th>
+                                <th>FIVE</th>
                                 <th>For Each Additional Subject<br></br>
                                 <select  id="personOptions" value="1" onChange={this.handleOptionChange} >
-                                    <option id="default" value="none" selected>Select an Option </option>
+                                    <option id="default" value="none" selected>Select an no of additional Subject </option>
+                                    
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
                                     <option value="6">6</option>
                                     <option value="7">7</option>
                                     <option value="8">8</option>

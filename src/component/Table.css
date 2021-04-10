@@ -1,11 +1,15 @@
+.container{
+    overflow: scroll;
+}
+
 table {
     font-family: Arial, sans-serif;
     border-collapse: collapse;
-    margin: 0;
+    margin: 25px 25px 25px 25px;
     font-size: 0.5cm;
     min-width: 150px;
     box-shadow: 0 0 20px rgba(0,0,0,0.15);
-    width: 100%;
+    width: 80%;
     padding: 0;
     border: 0;
 }
@@ -56,3 +60,18 @@ tbody tr :active-row{
     color: #009879;
 }
 
+select, option {
+    width: 200px;
+    overflow: scroll;
+    text-overflow: ellipsis;
+}
+select{
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+option {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
